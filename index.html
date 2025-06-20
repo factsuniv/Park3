@@ -55,11 +55,11 @@
         }
         
         .floating-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.75); /* New */
+            backdrop-filter: blur(12px); /* New */
             border-radius: 16px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15); /* New */
         }
         
         .map-background {
@@ -139,8 +139,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #007BFF 0%, #0056B3 100%);
-            color: white;
+            background: rgba(255, 255, 255, 0.2); /* New */
+            backdrop-filter: blur(5px); /* New */
+            /* color: white; Remove this as it will be handled by Tailwind class on child icon */
             font-size: 24px;
         }
         
@@ -149,7 +150,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 8px 20px;
-            background: rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.1); /* New */
+            backdrop-filter: blur(10px); /* New */
             font-size: 14px;
             font-weight: 600;
         }
@@ -203,6 +205,11 @@
             font-size: 12px;
             font-weight: 600;
             z-index: 1000;
+        }
+
+        .frosted-bottom-nav {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
@@ -304,7 +311,7 @@
                             <div class="grid grid-cols-2 gap-4">
                                 <button onclick="showArea('downtown')" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-colors">
                                     <div class="service-icon">
-                                        <i class="fas fa-building"></i>
+                                        <i class="fas fa-building text-blue-700"></i> <!-- Added text-blue-700 -->
                                     </div>
                                     <div class="text-left">
                                         <div class="font-semibold text-gray-800">Downtown</div>
@@ -313,7 +320,7 @@
                                 </button>
                                 <button onclick="showArea('legacy')" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-blue-50 transition-colors">
                                     <div class="service-icon">
-                                        <i class="fas fa-shopping-bag"></i>
+                                        <i class="fas fa-shopping-bag text-blue-700"></i> <!-- Added text-blue-700 -->
                                     </div>
                                     <div class="text-left">
                                         <div class="font-semibold text-gray-800">Legacy</div>
@@ -358,7 +365,7 @@
                     </div>
                     
                     <!-- Bottom Navigation -->
-                    <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200">
+                    <div class="absolute bottom-0 left-0 right-0 border-t border-gray-200 frosted-bottom-nav">
                         <div class="flex justify-around py-3">
                             <button class="flex flex-col items-center space-y-1 text-blue-500">
                                 <i class="fas fa-home text-xl"></i>
